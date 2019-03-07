@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Calibri light', Calibri, 'Trebuchet MS', 'Gill Sans', 'Gill Sans MT', sans-serif;
+    font-size: 1.5rem;
+}
+
+body {
+    background: #201c1c;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mail {
+    top: 30vh;
+    width: 400px;
+    height: 300px;
+    background: #fc9393;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform: scale(1);
+}
+
+.mail::before {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-left: 200px solid transparent;
+    border-right: 200px solid #f53a3a;
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid #f53a3a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+}
+
+.mail::after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-left: 200px solid #f76464;
+    border-right: 200px solid transparent;
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid #f76464;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 3;
+}
+.mail .music-credit {
+    position: absolute;
+    top:85%;
+    left:50%;
+    width: 20vw;
+    transform: translate(-50%,-50%);
+    font-size: 0.3rem;
+    z-index: 5;
+}
+
+.flap::before {
+    content: "";
+    left: 0;
+    position: absolute;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 150px solid #fc9393;
+    border-bottom: 150px solid transparent;
+    z-index: 6;
+    transform-origin: top;
+    transform: rotateX(0deg);
+    transition: all 0.5s ease;
+}
+
+.letter {
+    position: relative;
+    z-index: 1;
+    top: 0vh;
+    left: 10px;
+    background: #f7f6f5;
+    width: 380px;
+    height: 300px;
+    border-radius: 15px;
+    transition: all 0.5 ease;
+}
+.wrapper h1,
+.wrapper h2 {
+    top: 0;
+    left: -30%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-family: 'Gochi Hand', cursive;
+    color: rgb(255, 197, 5);
+    opacity: 0;
+}
+.wrapper img {
+    top:0;
+    left:0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: auto;
+    border: 5px #f7f6f5;
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+}
+
+/* ----------------------animation---------------- */
+/*----- animated mail, flap & letter-----*/
+
+.flap::before {
+    animation-name: flap-open;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: all 1s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+}
+
+@keyframes flap-open {
+    100% {
+        transform: rotateX(180deg);
+        z-index: 0;
+    }
+}
+
+.letter-pop-out {
+    animation-name: pop-zoom;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 5.55s;
+}
+
+@keyframes pop-zoom {
+    50% {
+        top: -45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+
+    75% {
+        top: -45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 7;
+        width: 380px;
+        height: 300px;
+    }
+
+    100% {
+        top: -45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 7;
+        width: 95vw;
+        height: 75vh;
+    }
+}
+
+
+
+@keyframes zoom-in {
+    100% {
+        top: -90%;
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        z-index: 7;
+        width: 95vw;
+        height: 60vh;
+    }
+
+
+}
+
+/*-----animated content-----*/
+/*----Greeting----*/
+
+h1 span {
+    color: #f76464;
+    font-size: 2.5rem;
+    font-family: 'Gochi Hand', cursive;
+}
+h2 span{
+    color: #f76464;
+    font-family: 'Gochi Hand', cursive;
+}
+#greeting.showcase {
+    top: -50%;
+    left: -60%;
+    animation-delay: 9s;
+}
+
+/*----Greeting----*/
+/* ----Introduction----*/
+#intro.showcase {
+    top: -30%;
+    left: -30%;
+    animation-delay: 13s;
+}
+
+/* ----Introduction----*/
+/*----Complement-1 & images----*/
+#compl-1.showcase {
+    animation-delay: 19s;
+    top: -30%;
+    left: -30%;
+}
+#img-1.showcase{
+    animation-delay: 20s;
+    top:20%;
+    left:25%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+#img-2.showcase{
+    animation-delay: 20.5s;
+    top: 20%;
+    left: 75%;
+    transform: translate(-50%, -50%) rotate(1deg);
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+/*----Complement-1 & images----*/
+/*----Complement-2 & images----*/
+#compl-2.showcase {
+    animation-delay: 25s;
+    top: -30%;
+    left: -30%;
+}
+#img-3.showcase{
+    animation-delay: 26s;
+    top:20%;
+    left:25%;
+    transform: translate(-50%, -50%) rotate(-1deg);
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+#img-4.showcase{
+    animation-delay: 26.5s;
+    top: 20%;
+    left: 75%;
+    transform: translate(-50%, -50%) rotate(1.5deg);
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+
+/*----Complement-2 & images----*/
+/*----Complement-3 & images----*/
+#compl-3.showcase {
+    animation-delay: 31s;
+    top: -30%;
+    left: -30%;
+}
+#img-5.showcase {
+    animation-delay: 32s;
+    top:20%;
+    left:25%;
+    transform: translate(-50%, -50%) rotate(1deg);
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+#img-6.showcase {
+    animation-delay: 32.5s;
+    top: 20%;
+    left: 75%;
+    transform: translate(-50%, -50%) rotate(-0.5deg);
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+/*----Complement-3 & images----*/
+/*----Complement-4----*/
+#compl-4.showcase {
+    animation-delay: 37s;
+    top: -30%;
+    left: -30%;
+}
+
+/*----Complement-4----*/
+/*----Name & Profile Img Call-out----*/
+#profile.showcase {
+    animation-delay: 43s;
+    top: -30%;
+    left: 50%;
+    text-align: center;
+}
+#profile-pic.showcase {
+    animation-delay: 43.5s;
+    animation-duration: 6.3s;
+    top: 60%;
+    left: 50%;
+    width: 45vw;
+    height: auto;
+    box-shadow: 13px 15px 26px 1px rgba(0,0,0,0.75);
+}
+
+/*----Name & Profile Img Call-out----*/
+/*----Wishing----*/
+#wishing.showcase {
+    animation-delay: 51s;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 40vw;
+    font-size: 1.3rem;
+    transform: translate(-50%, -50%) rotate(-0.8deg);
+}
+
+/*----Wishing----*/
+
+
+.showcase {
+    animation-name: fade-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
